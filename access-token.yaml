@@ -13,7 +13,7 @@ origin: pc-magas/.github-access-token # e.g. qoomon/.github-access-token
 allowed-repository-permissions: # https://docs.github.com/en/rest/authentication/permissions-required-for-github-apps
   # === Repository permissions ===
   #
-  actions: read # read or write
+  actions: write # read or write
   # actions-variables: read # read or write
   # administration: read # read or write - BE AWARE 'administration' scope can not be completely limited to a repository e.g. create new repositories is still possible
   # checks: read # read or write
@@ -75,6 +75,12 @@ statements:
       # repo:${origin}:job_workflow_ref:<job_workflow_ref> e.g. repo:${origin}:job_workflow_ref:${origin}/.github/workflows/build.yml@refs/heads/main
 
     permissions: # https://docs.github.com/en/rest/authentication/permissions-required-for-github-apps
+        - subjects:
+            - repo:${origin}:ref:refs/heads/dev
+            - repo:${origin}:workflow_ref:${origin}/.github/workflows/release.yml@refs/heads/dev
+          permissions:
+            pull-requests: write
+
       # === Organization permissions ===
       # members: read # read or write
       # organization-actions-variables: read # read or write
@@ -100,7 +106,7 @@ statements:
 
       # === Repository permissions ===
       #
-      actions: read # read or write
+      #actions: read # read or write
       # actions-variables: read # read or write
       # administration: read # read or write - BE AWARE 'administration' scope can not be completely limited to a repository e.g. create new repositories is still possible
       # checks: read # read or write
