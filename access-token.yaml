@@ -1,4 +1,4 @@
-origin: pc-magas/.githb-access-token # e.g. qoomon/.github-access-token
+origin: pc-magas/.github-access-token # e.g. qoomon/.github-access-token
 
 # Configure which subjects are allowed to request an access token.
 # allowed-subjects:
