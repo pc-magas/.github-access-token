@@ -48,6 +48,11 @@ allowed-repository-permissions: # https://docs.github.com/en/rest/authentication
 # NOTE: Every statement will always implicitly grant `metadata: read` permission.
 statements:
   - subjects:
+      - repo:${origin}:ref:refs/heads/dev
+      - repo:${origin}:workflow_ref:${origin}/.github/workflows/release.yml@refs/heads/dev
+    permissions:
+      pull-requests: write
+
       # === Subject Pattern examples ===
       #
       # grant access to jobs running on the main branch
@@ -74,13 +79,8 @@ statements:
       # repo:${origin}:workflow_ref:<workflow_ref> e.g. repo:${origin}:workflow_ref:${origin}/.github/workflows/build.yml@refs/heads/main
       # repo:${origin}:job_workflow_ref:<job_workflow_ref> e.g. repo:${origin}:job_workflow_ref:${origin}/.github/workflows/build.yml@refs/heads/main
 
-    permissions: # https://docs.github.com/en/rest/authentication/permissions-required-for-github-apps
-        - subjects:
-            - repo:${origin}:ref:refs/heads/dev
-            - repo:${origin}:workflow_ref:${origin}/.github/workflows/release.yml@refs/heads/dev
-          permissions:
-            pull-requests: write
-
+      
+      
       # === Organization permissions ===
       # members: read # read or write
       # organization-actions-variables: read # read or write
