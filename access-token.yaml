@@ -32,7 +32,7 @@ allowed-repository-permissions: # https://docs.github.com/en/rest/authentication
   # packages: read # read or write
   # pages: read # read or write
   # projects: read # read or write or admin
-  # pull-requests: read # read or write
+  pull-requests: write # read or write
   # repository-advisories: read # read or write
   # repository-hooks: read # read or write
   # repository-projects: read # read or write or admin
