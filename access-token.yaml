@@ -100,7 +100,7 @@ statements:
 
       # === Repository permissions ===
       #
-      # actions: read # read or write
+      actions: read # read or write
       # actions-variables: read # read or write
       # administration: read # read or write - BE AWARE 'administration' scope can not be completely limited to a repository e.g. create new repositories is still possible
       # checks: read # read or write
